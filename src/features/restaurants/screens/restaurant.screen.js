@@ -9,12 +9,15 @@ import {
 } from "react-native";
 import { Searchbar } from "react-native-paper";
 import { RestaurantInfo } from "../components/restaurant-info.components";
-
+import styled from "styled-components";
 // const isAndroid = Platform.OS ==="android"
 // console.log(StatusBar.currentHeight); return height of statusBar in android only
-
+const SafeArea = styled(SafeAreaView)`
+  flex: 1;
+  margin-top: ${StatusBar.currentHeight}px;
+`;
 export const RestaurnatsScreen = () => (
-  <SafeAreaView style={styles.container}>
+  <SafeArea >
     <View style={styles.search}>
       <Searchbar
       //   placeholder="Search"
@@ -25,14 +28,11 @@ export const RestaurnatsScreen = () => (
     <View style={styles.list}>
       <RestaurantInfo />
     </View>
-  </SafeAreaView>
+  </SafeArea>
 );
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight,
-  },
+  
   search: {
     padding: 16,
     // backgroundColor: "green",
@@ -40,6 +40,6 @@ const styles = StyleSheet.create({
   list: {
     flex: 1,
     padding: 16,
-    // backgroundColor: "blue",
+    backgroundColor: "blue",
   },
 });
