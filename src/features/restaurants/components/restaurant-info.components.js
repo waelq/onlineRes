@@ -7,10 +7,17 @@ import {
   View,
   // Platform,
 } from "react-native";
+import styled from "styled-components";
 import { Card } from "react-native-paper";
+
+const Title = styled.Text`
+  padding: 16px;
+  color: red;
+`;
+
 export const RestaurantInfo = ({ restaurant = {} }) => {
   const {
-    name ="test",
+    name = "test",
     icon,
     photos = ["https://picsum.photos/700"],
     address,
@@ -21,7 +28,7 @@ export const RestaurantInfo = ({ restaurant = {} }) => {
   return (
     <Card elevation={5} style={styles.card}>
       <Card.Cover key={name} style={styles.cover} source={{ uri: photos[0] }} />
-      <Text style={styles.title}>{name}</Text>
+      <Title style={styles.title}>{name}</Title>
     </Card>
   );
 };
@@ -34,7 +41,4 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: "white",
   },
-  title:{
-    padding:16,
-  }
 });
