@@ -14,8 +14,9 @@ import styled from "styled-components";
 // console.log(StatusBar.currentHeight); return height of statusBar in android only
 const SafeArea = styled(SafeAreaView)`
   flex: 1;
-  margin-top: ${StatusBar.currentHeight}px;
+ ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px;`} 
 `;
+// ios error in above line so we will check if android value it return margin ... (margin-top: ${StatusBar.currentHeight}px;)
 export const RestaurnatsScreen = () => (
   <SafeArea >
     <View style={styles.search}>

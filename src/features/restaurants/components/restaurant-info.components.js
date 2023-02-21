@@ -9,7 +9,13 @@ import {
 } from "react-native";
 import styled from "styled-components";
 import { Card } from "react-native-paper";
-
+const CardRestaurant =styled(Card)`
+background-color:white;
+`
+const CardCover =styled(Card.Cover)`
+background-color:red;
+padding:20px;
+`
 const Title = styled.Text`
   padding: 16px;
   color: red;
@@ -27,7 +33,7 @@ export const RestaurantInfo = ({ restaurant = {} }) => {
   } = restaurant;
   return (
     <CardRestaurant elevation={5}>
-      <Card.Cover resizeMode="contain" key={name} source={{ uri: photos[0] }} />
+      <CardCover  key={name} source={{ uri: photos[0] }} />
       <Title>{name}</Title>
     </CardRestaurant>
   );
