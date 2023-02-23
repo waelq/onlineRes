@@ -4,22 +4,23 @@ import {
   StyleSheet,
   SafeAreaView,
   Text,
-  View,
+  View
   // Platform,
 } from "react-native";
 import styled from "styled-components";
 import { Card } from "react-native-paper";
-const CardRestaurant =styled(Card)`
-background-color:white;
-`
-const CardCover =styled(Card.Cover)`
-background-color:red;
-padding:20px;
-`
-const Title = styled.Text`
-  padding: 16px;
-  color: red;
+const CardRestaurant = styled(Card)`
+  background-color: white;
 `;
+const CardCover = styled(Card.Cover)`
+  background-color: red;
+  padding: 20px;
+`;
+const Title = styled.Text`
+  padding: ${(props) => props.theme.space[3]};
+  color: ${(props) => props.theme.colors.ui.error};
+`;
+// color: ${(props) => props.theme.colors.ui.error}; is how to get them from theme provider
 
 export const RestaurantInfo = ({ restaurant = {} }) => {
   const {
@@ -29,11 +30,11 @@ export const RestaurantInfo = ({ restaurant = {} }) => {
     address,
     isOpenNow = true,
     rating = 4,
-    isClosed,
+    isClosed
   } = restaurant;
   return (
     <CardRestaurant elevation={5}>
-      <CardCover  key={name} source={{ uri: photos[0] }} />
+      <CardCover key={name} source={{ uri: photos[0] }} />
       <Title>{name}</Title>
     </CardRestaurant>
   );
