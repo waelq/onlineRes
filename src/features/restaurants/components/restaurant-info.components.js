@@ -9,6 +9,10 @@ import {
 } from "react-native";
 import styled from "styled-components";
 import { Card } from "react-native-paper";
+import { SvgXml } from "react-native-svg";
+// import star
+import star from "../../../../assets/stars";
+
 const CardRestaurant = styled(Card)`
   background-color: white;
 `;
@@ -32,7 +36,11 @@ const Title = styled(Text)`
 const Info = styled.View`
   padding: ${(props) => props.theme.space[3]};
 `;
-
+const Ratting = styled.View`
+  flex-direction: row;
+  padding-top: ${(props) => props.theme.space[2]};
+  padding-bottom: ${(props) => props.theme.space[2]};
+`;
 // color: ${(props) => props.theme.colors.ui.error}; is how to get them from theme provider
 
 export const RestaurantInfo = ({ restaurant = {} }) => {
@@ -45,11 +53,17 @@ export const RestaurantInfo = ({ restaurant = {} }) => {
     rating = 4,
     isClosed
   } = restaurant;
+  const rattingArray = Array.from(new Array(Math.floor(rating)));
   return (
     <CardRestaurant elevation={5}>
       <CardCover key={name} source={{ uri: photos[0] }} />
       <Info>
         <Title>{name}</Title>
+        <Ratting>
+          {rattingArray.map(() => (
+            <SvgXml width={20} height={20} xml={star} />
+          ))}
+        </Ratting>
         <Address>{address}</Address>
       </Info>
     </CardRestaurant>
