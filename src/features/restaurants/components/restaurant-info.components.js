@@ -16,10 +16,23 @@ const CardCover = styled(Card.Cover)`
   background-color: red;
   padding: 20px;
 `;
-const Title = styled.Text`
-  padding: ${(props) => props.theme.space[3]};
-  color: ${(props) => props.theme.colors.ui.error};
+const Address = styled(Text)`
+  font-family: ${(props) => props.theme.fonts.body};
+  font-size: ${(props) => props.theme.fontSizes.caption};
 `;
+
+const Title = styled(Text)`
+  font-family: ${(props) => props.theme.fonts.body}
+  padding: ${(props) => props.theme.space[1]};
+  font-family: ${(props) => props.theme.fonts.heading};
+  font-size: ${(props) => props.theme.fontSizes.body};
+  color: ${(props) => props.theme.colors.ui.primary};
+`;
+
+const Info = styled.View`
+  padding: ${(props) => props.theme.space[3]};
+`;
+
 // color: ${(props) => props.theme.colors.ui.error}; is how to get them from theme provider
 
 export const RestaurantInfo = ({ restaurant = {} }) => {
@@ -27,7 +40,7 @@ export const RestaurantInfo = ({ restaurant = {} }) => {
     name = "test",
     icon,
     photos = ["https://picsum.photos/700"],
-    address,
+    address = "Tell-Al-Soltan",
     isOpenNow = true,
     rating = 4,
     isClosed
@@ -35,7 +48,10 @@ export const RestaurantInfo = ({ restaurant = {} }) => {
   return (
     <CardRestaurant elevation={5}>
       <CardCover key={name} source={{ uri: photos[0] }} />
-      <Title>{name}</Title>
+      <Info>
+        <Title>{name}</Title>
+        <Address>{address}</Address>
+      </Info>
     </CardRestaurant>
   );
 };
