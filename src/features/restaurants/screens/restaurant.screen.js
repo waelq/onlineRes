@@ -4,7 +4,7 @@ import {
   StyleSheet,
   SafeAreaView,
   Text,
-  View,
+  View
   // Platform,
 } from "react-native";
 import { Searchbar } from "react-native-paper";
@@ -14,11 +14,11 @@ import styled from "styled-components";
 // console.log(StatusBar.currentHeight); return height of statusBar in android only
 const SafeArea = styled(SafeAreaView)`
   flex: 1;
- ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px;`} 
+  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px;`}
 `;
 // ios error in above line so we will check if android value it return margin ... (margin-top: ${StatusBar.currentHeight}px;)
 export const RestaurnatsScreen = () => (
-  <SafeArea >
+  <SafeArea>
     <View style={styles.search}>
       <Searchbar
       //   placeholder="Search"
@@ -33,14 +33,13 @@ export const RestaurnatsScreen = () => (
 );
 
 const styles = StyleSheet.create({
-  
   search: {
-    padding: 16,
+    padding: 16
     // backgroundColor: "green",
   },
   list: {
     flex: 1,
-    padding: 16,
-    backgroundColor: "blue",
-  },
+    padding: 16
+    // backgroundColor: "blue",
+  }
 });
