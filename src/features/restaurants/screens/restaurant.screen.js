@@ -3,7 +3,7 @@ import {
   StatusBar,
   StyleSheet,
   SafeAreaView,
-  Text,
+  FlatList,
   View
   // Platform,
 } from "react-native";
@@ -17,18 +17,21 @@ const SafeArea = styled(SafeAreaView)`
   ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px;`}
 `;
 // ios error in above line so we will check if android value it return margin ... (margin-top: ${StatusBar.currentHeight}px;)
+
+const RestaurantList = styled(FlatList).attrs({
+  contentContainerStyle: { padding: 16 }
+})``;
+// arrts is how controle style in attrubute
 export const RestaurnatsScreen = () => (
   <SafeArea>
     <View style={styles.search}>
-      <Searchbar
-      //   placeholder="Search"
-      //   onChangeText={onChangeSearch}
-      //   value={searchQuery}
-      />
+      <Searchbar />
     </View>
-    <View style={styles.list}>
-      <RestaurantInfo />
-    </View>
+    <RestaurantList
+      data={[{ name: 1 }, { name: 2 }, { name: 3 }, { name: 4 }]}
+      renderItem={() => <RestaurantInfo />}
+      keyExtractor={(item) => item.name}
+    />
   </SafeArea>
 );
 
@@ -36,10 +39,5 @@ const styles = StyleSheet.create({
   search: {
     padding: 16
     // backgroundColor: "green",
-  },
-  list: {
-    flex: 1,
-    padding: 16
-    // backgroundColor: "blue",
   }
 });
