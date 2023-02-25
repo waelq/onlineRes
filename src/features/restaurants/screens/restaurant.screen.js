@@ -30,7 +30,7 @@ export const RestaurnatsScreen = () => (
     <RestaurantList
       data={[{ name: 1 }, { name: 2 }, { name: 3 }, { name: 4 }]}
       renderItem={() => <RestaurantInfo />}
-      keyExtractor={(item) => item.name}
+      keyExtractor={(item, index) => item.name}
     />
   </SafeArea>
 );
