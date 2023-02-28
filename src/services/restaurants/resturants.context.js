@@ -40,7 +40,7 @@ export const RestaurantsContextProvider = ({ children }) => {
   useEffect(() => {
     if (location) {
       const locationGotIt = `${location.lat},${location.lng}`;
-      console.log({ locationGotIt });
+      // console.log({ locationGotIt });
       retrieveRestaurants(locationGotIt);
     }
   }, [location]);
