@@ -3,7 +3,7 @@ import {
   StyleSheet,
   FlatList,
   View,
-  Pressable
+  TouchableOpacity
   // Platform,
 } from "react-native";
 import { ActivityIndicator, Colors } from "react-native-paper";
@@ -51,9 +51,13 @@ export const RestaurnatsScreen = ({ navigation }) => {
         renderItem={({ item }) => {
           // console.log({ item });
           return (
-            <Pressable onPress={() => navigation.navigate("RestaurantDetails")}>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("RestaurantDetails", { restaurant: item })
+              }
+            >
               <RestaurantInfo restaurant={item} />
-            </Pressable>
+            </TouchableOpacity>
           );
         }}
         keyExtractor={(item, index) => item.name}

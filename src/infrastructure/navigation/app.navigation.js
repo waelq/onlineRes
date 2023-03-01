@@ -11,8 +11,9 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { SafeArea } from "../../components/saveArea/saveArea.component";
 
 const Tab = createBottomTabNavigator();
+
 const TAB_ICON = {
-  Restaurnats: "md-restaurant",
+  Restaurnats: "md-restaurant-sharp",
   Settings: "md-settings",
   Map: "md-map"
 };
