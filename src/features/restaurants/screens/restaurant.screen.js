@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 import {
   StyleSheet,
   FlatList,
-  View
+  View,
+  Pressable
   // Platform,
 } from "react-native";
-import { Searchbar, ActivityIndicator, Colors } from "react-native-paper";
+import { ActivityIndicator, Colors } from "react-native-paper";
 import { RestaurantInfo } from "../components/restaurant-info.components";
 import styled from "styled-components";
 // const isAndroid = Platform.OS ==="android"
@@ -28,7 +29,7 @@ const LoadingContainer = styled.View`
   left: 50%;
   position: "absolute";
 `;
-export const RestaurnatsScreen = () => {
+export const RestaurnatsScreen = ({ navigation }) => {
   const { restaurants, isLoading, error } = useContext(RestaurantsContext);
   // console.log(restaurantsContext);
   return (
@@ -49,7 +50,11 @@ export const RestaurnatsScreen = () => {
         // {item} prop in reachout item prop in object
         renderItem={({ item }) => {
           // console.log({ item });
-          return <RestaurantInfo restaurant={item} />;
+          return (
+            <Pressable onPress={() => navigation.navigate("RestaurantDetails")}>
+              <RestaurantInfo restaurant={item} />
+            </Pressable>
+          );
         }}
         keyExtractor={(item, index) => item.name}
       />

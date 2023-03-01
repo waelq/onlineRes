@@ -43,7 +43,6 @@ export const RestaurantInfo = ({ restaurant = {} }) => {
     return elements;
   };
 
-  console.log({ rating });
   return (
     <CardRestaurant elevation={5}>
       <CardCover key={name} source={{ uri: photos[0] }} />
