@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
   StyleSheet,
   FlatList,
@@ -13,8 +13,10 @@ import styled from "styled-components";
 // import Component
 import { Search } from "../components/search";
 import { SafeArea } from "../../../components/saveArea/saveArea.component";
+import { FavouriteBar } from "../../../components/favourite/favourite-bar";
 // import context
 import { RestaurantsContext } from "../../../services/restaurants/resturants.context";
+import { FavouritesContext } from "../../../services/favourites/favourites.context";
 
 const RestaurantList = styled(FlatList).attrs({
   contentContainerStyle: { padding: 16 }
@@ -31,7 +33,8 @@ const LoadingContainer = styled.View`
 `;
 export const RestaurnatsScreen = ({ navigation }) => {
   const { restaurants, isLoading, error } = useContext(RestaurantsContext);
-  // console.log(restaurantsContext);
+  const { favourites } = useContext(FavouritesContext);
+  const [isToggle, setIsToggle] = useState(false);
   return (
     <SafeArea>
       {isLoading && (
@@ -44,7 +47,16 @@ export const RestaurnatsScreen = ({ navigation }) => {
           />
         </View>
       )}
-      <Search />
+      <Search
+        isFavouriteToggle={isToggle}
+        isToggleFuncion={() => setIsToggle(!isToggle)}
+      />
+      {isToggle && (
+        <FavouriteBar
+          favourites={favourites}
+          onNavigate={navigation.navigate}
+        />
+      )}
       <RestaurantList
         data={restaurants}
         // {item} prop in reachout item prop in object

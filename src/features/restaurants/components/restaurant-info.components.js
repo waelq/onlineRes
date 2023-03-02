@@ -11,6 +11,7 @@ import open from "../../../../assets/open";
 // import component
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
+import { Favourite } from "../../../components/favourite/favourite";
 // import styled
 import {
   Icon,
@@ -46,6 +47,7 @@ export const RestaurantInfo = ({ restaurant = {} }) => {
   return (
     <CardRestaurant elevation={5}>
       <CardCover key={name} source={{ uri: photos[0] }} />
+      <Favourite restaurant={restaurant} />
       <Info>
         <Text variant="label">{name}</Text>
         <Section>
