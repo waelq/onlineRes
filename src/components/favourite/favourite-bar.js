@@ -3,8 +3,7 @@ import { Text } from "../typography/text.component";
 import { ScrollView, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import { Spacer } from "../spacer/spacer.component";
-import { CompactRestaurantInfo } from "../restaurant/compact-restaurant-info.component";
-import { Text } from "../typography/text.component";
+import { CompactRestaurantInfo } from "../restaurant/compact-res-info";
 
 const FavouritesWrapper = styled.View`
   padding: 10px;
@@ -25,11 +24,7 @@ export const FavouriteBar = ({ favourites, onNavigate }) => {
           return (
             <Spacer key={key} position="left" size="medium">
               <TouchableOpacity
-                onPress={() =>
-                  onNavigate("RestaurantDetail", {
-                    restaurant
-                  })
-                }
+                onPress={() => onNavigate("RestaurantDetails", { restaurant })}
               >
                 <CompactRestaurantInfo restaurant={restaurant} />
               </TouchableOpacity>
