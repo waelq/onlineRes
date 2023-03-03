@@ -6,7 +6,7 @@ import {
   TouchableOpacity
   // Platform,
 } from "react-native";
-import { ActivityIndicator, Colors } from "react-native-paper";
+import { ActivityIndicator, MD2Colors } from "react-native-paper";
 import { RestaurantInfo } from "../components/restaurant-info.components";
 import styled from "styled-components";
 // const isAndroid = Platform.OS ==="android"
@@ -43,7 +43,7 @@ export const RestaurnatsScreen = ({ navigation }) => {
             size={50}
             style={{ marginLeft: -25 }}
             animating={true}
-            color={({ props }) => props.theme.colors.brand.secondary}
+            color={MD2Colors.blue400}
           />
         </View>
       )}
