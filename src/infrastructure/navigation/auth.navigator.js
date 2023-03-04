@@ -1,16 +1,16 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Text } from "../../components/typography/text.component";
+import { LoginScreen } from "../../features/auth/screens/login";
+import { RegisterScreen } from "../../features/auth/screens/register";
+import { MainScreen } from "../../features/auth/screens/main";
+
 const Stack = createStackNavigator();
 export const AuthNavigator = () => {
   return (
-    <Stack.Navigator
-      headerMode="none"
-      //   screenOptions={{
-      //     ...TransitionPresets.ModalPresentationIOS // TransitionPresets for native animations as ios 13
-      //   }}
-    >
-      <Stack.Screen name="Main" component={() => <Text>Main</Text>} />
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Main" component={MainScreen} />
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Register" component={RegisterScreen} />
     </Stack.Navigator>
   );
 };

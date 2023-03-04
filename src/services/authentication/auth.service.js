@@ -3,5 +3,10 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
 
-export const LoginRequset = (email, password) =>
-  firebase.auth().signInWithEmailAndPassword("w@w.com", "123456");
+export const loginRequest = (email, password) =>
+  firebase.auth().signInWithEmailAndPassword(email, password);
+
+export const registerRequset = (email, password) =>
+  firebase.auth().createUserWithEmailAndPassword(email, password);
+
+export const logoutRequset = () => firebase.auth().signOut();
