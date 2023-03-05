@@ -52,6 +52,7 @@ export const AuthenticationContextProvider = ({ children }) => {
       });
   };
   const onLogout = () => {
+    setIsLoading(false);
     logoutRequset().then(() => {
       setUser(null);
       setError(null);

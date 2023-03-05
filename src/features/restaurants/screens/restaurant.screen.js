@@ -14,6 +14,7 @@ import styled from "styled-components";
 import { Search } from "../components/search";
 import { SafeArea } from "../../../components/saveArea/saveArea.component";
 import { FavouriteBar } from "../../../components/favourite/favourite-bar";
+import { FadeInView } from "../../../components/animation/fade.animation";
 // import context
 import { RestaurantsContext } from "../../../services/restaurants/resturants.context";
 import { FavouritesContext } from "../../../services/favourites/favourites.context";
@@ -24,11 +25,12 @@ const RestaurantList = styled(FlatList).attrs({
 // arrts is how controle style in attrubute
 
 const Loading = styled(ActivityIndicator)`
-  marginleft: -25;
+  marginleft: -25px;
 `;
 const LoadingContainer = styled.View`
-  top: 50%;
-  left: 50%;
+  align-items: center;
+  justify-content: center;
+  top: 40%;
   position: "absolute";
 `;
 export const RestaurnatsScreen = ({ navigation }) => {
@@ -37,26 +39,22 @@ export const RestaurnatsScreen = ({ navigation }) => {
   const [isToggle, setIsToggle] = useState(false);
   return (
     <SafeArea>
-      {isLoading && (
-        <View style={{ top: "50%", left: "50%", position: "absolute" }}>
-          <ActivityIndicator
-            size={50}
-            style={{ marginLeft: -25 }}
-            animating={true}
-            color={MD2Colors.blue400}
-          />
-        </View>
-      )}
       <Search
         isFavouriteToggle={isToggle}
         isToggleFuncion={() => setIsToggle(!isToggle)}
       />
+      {isLoading && (
+        <LoadingContainer>
+          <Loading size={50} animating={true} color={MD2Colors.blue400} />
+        </LoadingContainer>
+      )}
       {isToggle && (
         <FavouriteBar
           favourites={favourites}
           onNavigate={navigation.navigate}
         />
       )}
+
       <RestaurantList
         data={restaurants}
         // {item} prop in reachout item prop in object
@@ -68,7 +66,9 @@ export const RestaurnatsScreen = ({ navigation }) => {
                 navigation.navigate("RestaurantDetails", { restaurant: item })
               }
             >
-              <RestaurantInfo restaurant={item} />
+              <FadeInView>
+                <RestaurantInfo restaurant={item} />
+              </FadeInView>
             </TouchableOpacity>
           );
         }}
