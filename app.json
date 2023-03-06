@@ -4,10 +4,10 @@
     "slug": "onlineRes",
     "version": "0.1.0",
     "orientation": "portrait",
-    "icon": "./assets/restaurant.jpg",
+    "icon": "./assets/restaurant.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/restaurant.jpg",
+      "image": "./assets/restaurant.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -20,7 +20,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/restaurant.jpg",
+        "foregroundImage": "./assets/restaurant.png",
         "backgroundColor": "#FFFFFF"
       }
     }

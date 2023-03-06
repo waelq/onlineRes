@@ -6,6 +6,7 @@ import {
 // TransitionPresets for native animations
 import { SettingsScreens } from "../../features/settings/screens/setting.screen";
 import { FavouritesScreen } from "../../features/settings/screens/favourites.screen";
+import { CameraScreen } from "../../features/settings/screens/camera.screen";
 const SettingtStack = createStackNavigator();
 
 export const SettingsNavigator = () => {
@@ -24,6 +25,7 @@ export const SettingsNavigator = () => {
         component={SettingsScreens}
       />
       <SettingtStack.Screen name="Favourites" component={FavouritesScreen} />
+      <SettingtStack.Screen name="Camera" component={CameraScreen} />
     </SettingtStack.Navigator>
   );
 };

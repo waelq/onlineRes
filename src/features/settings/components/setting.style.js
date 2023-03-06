@@ -2,6 +2,7 @@ import styled from "styled-components/native";
 import { List } from "react-native-paper";
 import { FlatList } from "react-native";
 import { SafeArea } from "../../../components/saveArea/saveArea.component";
+import { Camera } from "expo-camera";
 export const ListItemView = styled(List.Item)`
   padding: ${(props) => props.theme.space[3]};
 `;
@@ -16,4 +17,8 @@ export const RestaurantList = styled(FlatList).attrs({
 export const FavouritesArea = styled(SafeArea)`
   align-items: center;
   justify-content: center;
+`;
+export const ProfileCamera = styled(Camera)`
+  width: 100%;
+  height: 100%;
 `;
