@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "onlineRes",
-    "slug": "onlineRes",
+    "slug": "wael-restaurant",
     "version": "0.1.0",
     "orientation": "portrait",
     "icon": "./assets/restaurant.png",
@@ -14,7 +14,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -23,6 +25,12 @@
         "foregroundImage": "./assets/restaurant.png",
         "backgroundColor": "#FFFFFF"
       }
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b04a39a5-efed-48ea-928e-1cc736e30b36"
+      }
+    },
+    "owner": "wael_tq"
   }
 }
